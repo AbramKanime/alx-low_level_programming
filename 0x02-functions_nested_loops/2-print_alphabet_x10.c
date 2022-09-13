@@ -3,9 +3,9 @@
 /**
  * main - Entry point
  *
- * Description: To print the alphabet ten times
+ * Description: 'To print the alphabet ten times'
  *
- * Return: Always 0
+ * Return: Always 0 (Success)
  */
 void print_alphabet_x10(void)
 {

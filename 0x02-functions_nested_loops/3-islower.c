@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * To check for lowercase character
+ * Description: 'To check for lowercase character'
  *
  * Return: Always 0 (Success)
  */
