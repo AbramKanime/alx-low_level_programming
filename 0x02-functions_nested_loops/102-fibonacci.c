@@ -10,20 +10,20 @@
 int main(void)
 {
 	int count = 3;
-	int a = 1, b = 2;
-	int next = a + b;
+	long int a = 1, b = 2;
+	long int next = a + b;
 
-	printf("%d, ", a);
-	printf("%d, ", b);
+	printf("%lu, ", a);
+	printf("%lu, ", b);
 
 	while (count <= 50)
 	{
 		if (count == 50)
 		{
-			printf("%d\n", next);
+			printf("%lu\n", next);
 		} else if (count < 50)
 		{
-			printf("%d, ", next);
+			printf("%lu, ", next);
 		}
 		a = b;
 		b = next;
