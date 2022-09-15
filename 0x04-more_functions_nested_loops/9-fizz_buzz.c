@@ -20,23 +20,23 @@ int main(void)
 	{
 		if (j % 3 == 0 && j % 5 != 0)
 		{
-			printf("%s ", f);
+			printf(" %s", f);
 		}
 		else if (j % 5 == 0 && j % 3 != 0)
 		{
-			printf("%s ", b);
+			printf(" %s", b);
 		}
 		else if (j % 3 == 0 && j % 5 == 0)
 		{
-			printf("%s ", fb);
+			printf(" %s", fb);
 		}
 		else if (j == 1)
 		{
-			printf("%d ", j);
+			printf("%d", j);
 		}
 		else
 		{
-		printf("%d ", j);
+		printf(" %d", j);
 		}
 		j++;
 	}
