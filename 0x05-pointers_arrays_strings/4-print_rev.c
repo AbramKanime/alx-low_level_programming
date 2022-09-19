@@ -9,7 +9,9 @@ void print_rev(char *s)
 {
 	int i, j, length;
 
-
+	if (s[0] == '\0')
+		_putchar('\0');
+	else
 	for (i = 0; s[i] != '\0'; i++)
 		length = i;
 
