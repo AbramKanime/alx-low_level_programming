@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
 * _strcat - appends src string to dest string
@@ -10,21 +11,15 @@
 */
 char *_strcat(char *dest, char *src)
 {
-	char str[100];
-	int i, j;
+	int dest_len = strlen(dest);
+	int i;
 
-	for (i = 0; dest[i] != '\0'; i++)
+	for (i = 0 ; src[i] != '\0' ; i++)
 	{
-		str[j] = dest[i];
-		j++;
+		dest[dest_len + i] = src[i];
 	}
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		str[j] = src[i];
-		j++;
-	}
-	str[j] = '\0';
-	dest = str;
+
+	dest[dest_len + i] = '\0';
 
 	return (dest);
 }
