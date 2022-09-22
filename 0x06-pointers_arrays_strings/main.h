@@ -1,5 +1,5 @@
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef MAIN_H
+#define MAIN_H
 
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
@@ -11,6 +11,6 @@ char *string_toupper(char *str);
 char *cap_string(char *str);
 char *leet(char *s);
 char *rot13(char *str);
-
+void print_number(int n);
 
 #endif
