@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
-* print_buffer - prints a buffer
+* print_buffer - prints the contents of a buffer
 * @b: the buffer pointed to
 * @size: the size of the buffer
 */
