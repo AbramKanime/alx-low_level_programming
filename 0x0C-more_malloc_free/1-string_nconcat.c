@@ -39,10 +39,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = "";
 	if (s2 == 0)
 		s2 = "";
-	if (n > b)
-		p = malloc(sizeof(char) * (a + b + 1));
-	else
-		p = malloc(sizeof(char) * (a + n + 1));
+	if (n >= b)
+		n = b;
+
+	p = malloc(sizeof(char) * (a + n) + 1);
 
 	if (p == 0)
 		return (NULL);
