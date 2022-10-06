@@ -35,12 +35,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	a = _strlen(s1);
 	b = _strlen(s2);
 
-	if (n == 0)
+	if (s1 == 0)
+		s1 = "";
+	if (s2 == 0)
 		s2 = "";
-	else if (n >= b)
+	if (n >= b)
 		n = b;
 
-	p = malloc(sizeof(char) * a + n);
+	p = malloc(sizeof(char) * a + n + 1);
 	if (p == 0)
 		return (NULL);
 	for (c = 0, d = 0; c < a + n; c++)
