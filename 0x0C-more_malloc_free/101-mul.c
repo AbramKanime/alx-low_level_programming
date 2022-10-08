@@ -15,26 +15,7 @@ int str_len(char *str)
 		len++, str++;
 	return (len / 2);
 }
-/**
- * _calloc - allocates memory for an array using malloc
- * @number: bytes of memory needed per size requested
- * @size: size in bytes of each element
- * Return: pointer to the allocated memory
- */
-void *_calloc(unsigned int number, unsigned int size)
-{
-	char *p;
-	unsigned int a;
 
-	if (number == 0 || size == 0)
-		return (NULL);
-	p = malloc(number * size);
-	if (p == 0)
-		return (NULL);
-	for (a = 0; a < (number * size); a++)
-		p[a] = 0;
-	return (p);
-}
 /**
  * add_arrays - adds 2 arrays of ints
  * @mul_result: pointer to array with numbers from product
@@ -56,18 +37,6 @@ void add_arrays(int *mul_result, int *sum_result, int len_r)
 	}
 }
 /**
- * is_digit - checks for digits
- * @c: input character to check for digit
- * Return: 0 failure, 1 success
- */
-int is_digit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	printf("Error\n");
-	return (0);
-}
-/**
  * multiply - multiplies 2 #'s, prints result, must be 2 #'s
  * @num1: factor # 1 (is the smaller of 2 numbers)
  * @len_1: length of factor 1
@@ -81,17 +50,17 @@ int *multiply(char *num1, int len_1, char *num2, int len_2, int len_r)
 	int i = 0, i1 = len_1 - 1;
 	int i2, product, carry, digit, *mul_result, *sum_result;
 
-	sum_result = _calloc(sizeof(int), (len_r));
+	sum_result = malloc(sizeof(int) * len_r);
 	while (i < len_1)
 	{
-		mul_result = _calloc(sizeof(int), len_r);
+		mul_result = malloc(sizeof(int) * len_r);
 		i2 = len_2 - 1, digit = (len_r - 1 - i);
-		if (!is_digit(num1[i1]))
+		if (!(num1[i1] >= '0' && num1[i1] <= '9'))
 			return (NULL);
 		carry = 0;
 		while (i2 >= 0)
 		{
-			if (!is_digit(num2[i2]))
+			if (!(num2[i2] >= '0' && num2[i2] <= '9'))
 				return (NULL);
 			product = (num1[i1] - '0') * (num2[i2] - '0');
 			product += carry;
