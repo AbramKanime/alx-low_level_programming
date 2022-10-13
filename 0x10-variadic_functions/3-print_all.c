@@ -2,52 +2,89 @@
 #include <stdio.h>
 
 /**
+ * _printchar - function to print character
+ * @list: list being passed
+ *
+ * Return: void
+ */
+void _printchar(va_list list)
+{
+	printf("%c", va_arg(list, int));
+}
+
+/**
+ * _printstr - function to print string
+ * @list: list being passed
+ * Return: void
+ *
+ */
+void _printstr(va_list list)
+{
+	char *s;
+
+	s = va_arg(list, char *);
+	if (s == 0)
+		s = "(nil)";
+	printf("%s", s);
+}
+
+/**
+ * _printfloat - function to print float
+ * @list: list being passed
+ * Return: void
+ *
+ */
+void _printfloat(va_list list)
+{
+	printf("%f", va_arg(list, double));
+}
+
+/**
+ * _printint - function to print int
+ * @list: list being passed
+ * Return: void
+ *
+ */
+void _printint(va_list list)
+{
+	printf("%d", va_arg(list, int));
+}
+
+/**
+ * print_all - function to print various arguments
+ * @format: constant char argument
+ * Return: Void
+ */
+
+/**
 * print_all - prints anything
 * @format: list of types of arguments passed
 */
 void print_all(const char * const format, ...)
 {
+	unsigned int a = 0, b = 0;
 	va_list list;
-	int i = 0, orders;
-	char *str;
+	char *str = "";
 
-	while (format && format[i])
+	what_format frmt[4] = {
+		{"c", _printchar},
+		{"f", _printfloat},
+		{"s", _printstr},
+		{"i", _printint},
+	};
+
+	va_start(list, format);
+	while (format != 0 && format[a / 4] != 0)
 	{
-		va_start(list, format);
-		while (format[i])
+		b = a % 4;
+		if (frmt[b].type[0] == format[a / 4])
 		{
-			orders = 1;
-			switch (format[i++])
-			{
-			case 'c':
-				printf("%c", va_arg(list, int));
-				break;
-			case 'i':
-				printf("%d", va_arg(list, int));
-				break;
-			case 'f':
-				printf("%f", va_arg(list, double));
-				break;
-			case 's':
-				str = va_arg(list, char *);
-				if (str)
-				{
-					printf("%s", str);
-					break;
-				}
-				else
-				{
-					printf("(nil)");
-					break;
-				}
-			default:
-				orders = 0;
-				break;
-			}
-			if (format[i] && orders)
-				printf(", ");
+			printf("%s", str);
+			frmt[b].f(list);
+			str = ", ";
 		}
-		va_end(list);
+		a++;
 	}
 	printf("\n");
+	va_end(list);
 }
