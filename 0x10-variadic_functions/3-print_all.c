@@ -66,7 +66,7 @@ void print_all(const char * const format, ...)
 	va_list list;
 	char *str = "";
 
-	what_format frmt[4] = {
+	what_format frmt[] = {
 		{"c", _printchar},
 		{"f", _printfloat},
 		{"s", _printstr},
