@@ -2,6 +2,7 @@
 #define _VARIADIC_FUNCTIONS_H_ 
 
 #include <stdarg.h>
+#include <stddef.h>
 typedef struct what_format
 {
 	char *type;
