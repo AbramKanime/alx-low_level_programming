@@ -68,4 +68,6 @@ listint_t *create_list(int *array, size_t size);
 /* free_list - Deallocates a singly linked list */
 void free_list(listint_t *list);
 
+int advanced_binary(int *array, size_t size, int value);
+
 #endif /* SEARCH_H */
